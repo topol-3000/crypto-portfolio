@@ -42,6 +42,14 @@ Apply the migrations and update the database schema::
 
     make migrate
 
+Code formatting
+-------
+| To check if your code satisfy our code style before pushing it you can use pre-commit hooks.
+| Make sure you have installed the `pre-commit <https://pre-commit.com/#install/>`_ and setup project hooks:
+::
+
+    pre-commit install
+
 Contact
 =======
 Yevhenii Diemientiev - yevhenii.diemientiev.pe@gmail.com
