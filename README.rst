@@ -10,29 +10,21 @@ Crypto Portfolio
 
 A web-based REST API that enables users to track their crypto portfolios and receive ROI reports via email, enhancing their investment decision-making process.
 
-
 Getting Started
 ===============
 
 Preparations
 -------
-
 Copy ``.env.dist`` file, rename it to ``.env.dev`` and fill it with your data.
-
-
 
 Install
 -------
-
 Build and start application in development mode::
 
     make install
 
-
-
 Run earlier installed application
 ----------
-
 To run the Django development server and database::
 
     make up
@@ -46,12 +38,10 @@ Create new migrations based on the changes detected in your models::
 
 Migrate
 -------
-
 Apply the migrations and update the database schema::
 
     make migrate
 
 Contact
 =======
-
 Yevhenii Diemientiev - yevhenii.diemientiev.pe@gmail.com
