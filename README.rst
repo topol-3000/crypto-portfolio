@@ -11,27 +11,45 @@ Crypto Portfolio
 A web-based REST API that enables users to track their crypto portfolios and receive ROI reports via email, enhancing their investment decision-making process.
 
 
-Key Features
-============
-
-- Feature 1: Description of feature 1
-- Feature 2: Description of feature 2
-- Feature 3: Description of feature 3
-
 Getting Started
 ===============
 
-Install dependencies::
+Preparations
+-------
 
-    docker compose up
+Copy ``.env.dist`` file, rename it to ``.env.dev`` and fill it with your data.
 
-Set up the database::
 
-    docker compose run app python manage.py makemigrations
 
-Run the development server::
+Install
+-------
 
-    docker compose run app python manage.py migrate
+Build and start application in development mode::
+
+    make install
+
+
+
+Run earlier installed application
+----------
+
+To run the Django development server and database::
+
+    make up
+
+Make Migrations
+---------------
+
+Create new migrations based on the changes detected in your models::
+
+    make make-migrations
+
+Migrate
+-------
+
+Apply the migrations and update the database schema::
+
+    make migrate
 
 Contact
 =======
