@@ -26,3 +26,8 @@ create-superuser:
 
 .PHONY: update
 update: install make-migrations migrate ;
+
+
+.PHONY: test
+test:
+	docker compose run --rm app python manage.py test
