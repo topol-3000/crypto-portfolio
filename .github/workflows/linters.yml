@@ -31,7 +31,7 @@ jobs:
           flake8 ./portfolio/ --count --show-source --max-complexity=10 --max-line-length=120 --statistics
 
       - name: Check with black on diff
-        run: black --check --diff ./portfolio/
+        run: black --check --diff --line-length 120 ./portfolio/
 
       - name: Check imports with isort on diff
         run: isort --check-only --diff -m VERTICAL_GRID --line-length 120 ./portfolio/
