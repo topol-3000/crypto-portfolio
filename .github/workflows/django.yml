@@ -1,0 +1,33 @@
+name: Django tests
+
+on: [push, pull_request]
+
+jobs:
+    test:
+        name: Run unit tests
+        runs-on: ubuntu-22.04
+
+        steps:
+            - name: Login to Docker Hub
+              uses: docker/login-action@v3
+              with:
+                username: ${{ secrets.DOCKERHUB_USERNAME }}
+                password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+            - name: Checkout
+              uses: actions/checkout@v4
+
+            - name: Create .env.dev file
+              run: |
+                echo "SECRET_KEY=${{ secrets.SECRET_KEY }}" >> .env.dev
+                echo "DEBUG=${{ secrets.DEBUG }}" >> .env.dev
+                echo "POSTGRES_ENGINE=${{ secrets.POSTGRES_ENGINE }}" >> .env.dev
+                echo "POSTGRES_DB_NAME=${{ secrets.POSTGRES_DB_NAME }}" >> .env.dev
+                echo "POSTGRES_USER=${{ secrets.POSTGRES_USER }}" >> .env.dev
+                echo "POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }}" >> .env.dev
+                echo "POSTGRES_HOST=${{ secrets.POSTGRES_HOST }}" >> .env.dev
+                echo "POSTGRES_PORT=${{ secrets.POSTGRES_PORT }}" >> .env.dev
+                echo "ALLOWED_HOSTS=${{ secrets.ALLOWED_HOSTS }}" >> .env.dev
+
+            - name: Testing
+              run: docker-compose run --rm app sh -c "python3 manage.py test"
