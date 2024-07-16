@@ -27,3 +27,8 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return f"User(full_name={self.full_name}; email={self.email})"
+
+
+class Portfolio(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    title = models.CharField(max_length=256)
