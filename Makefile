@@ -31,3 +31,7 @@ update: install make-migrations migrate ;
 .PHONY: test
 test:
 	docker compose run --rm app python manage.py test
+
+.PHONY: fetch_cryptocurrencies
+fetch_cryptocurrencies:
+	docker compose run --rm app python manage.py fetch_cryptocurrencies
