@@ -26,7 +26,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     objects = CustomUserManager()
 
     def __str__(self):
-        return f"User(full_name={self.full_name}; email={self.email})"
+        return f"User(full_name={self.full_name}; email={self.email} )"
 
 
 class Portfolio(models.Model):
